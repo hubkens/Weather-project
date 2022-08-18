@@ -4,8 +4,9 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+    
         {
-            "type": "pwa-chrome",
+            "type": "chrome",
             "request": "launch",
             "name": "Open site.html",
             "file": "c:\\Users\\kihen\\OneDrive\\Documents\\cs0320\\projects\\mini-weather\\html\\site.html"
