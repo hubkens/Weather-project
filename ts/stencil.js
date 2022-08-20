@@ -32,7 +32,7 @@ let weather = {
         const { windDirection } = data;
         const { icon } = data;
         const { shortForecast } = data;
-        console.log(temperature, windSpeed, windDirection, icon, shortForecast);
+        console.log("Temp:" + temperature, "Wind:" + windSpeed + windDirection, "Icon:" + icon, "Description: " + shortForecast);
         const loc = document.querySelector(".location");
         const ic = document.querySelector(".icon");
         const win = document.querySelector(".wind");
@@ -50,5 +50,11 @@ let weather = {
     },
 };
 weather.geocoding('Baltimore');
+const searchBar = document.querySelector(".search-bar");
+searchBar.addEventListener("keyup", function (event) {
+    if (event.key == "Enter") {
+        weather.search();
+    }
+});
 const search = document.querySelector("#search-button");
 search.addEventListener("click", function () { weather.search(); });

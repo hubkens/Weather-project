@@ -16,7 +16,7 @@ let weather = {
         this.localityHolder = locality;
         fetch(
             'https://api.weather.gov/points/'
-            + parseFloat(latitude) + "," +parseFloat(longitude))
+            + parseFloat(latitude) + "," + parseFloat(longitude))
             .then((response) => response.json())
             .then((data) => this.retrieveWeather(data.properties.forecast))
             .catch((error: any) => console.error('Error: Invalid Search Input,', error));
@@ -35,7 +35,7 @@ let weather = {
         const { windDirection } = data;
         const { icon } = data;
         const { shortForecast } = data;
-        console.log(temperature, windSpeed, windDirection, icon, shortForecast);
+        console.log("Temp:" + temperature, "Wind:" + windSpeed + windDirection, "Icon:" + icon,"Description: " + shortForecast);
         
         const loc = document.querySelector(".location") as HTMLElement | null;
 
@@ -63,6 +63,12 @@ let weather = {
 }
 
 weather.geocoding('Baltimore');
+const searchBar = document.querySelector(".search-bar") as HTMLElement
+searchBar.addEventListener("keyup", function (event) {
+    if (event.key == "Enter") {
+      weather.search();
+    }
+  });
 const search = document.querySelector("#search-button") as HTMLElement;
 search.addEventListener("click", function () {weather.search();})
 
