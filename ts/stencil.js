@@ -14,8 +14,8 @@ let weather = {
         const { longitude } = geofeatures;
         const { locality } = geofeatures;
         this.localityHolder = locality;
-        fetch('https://api.weather.gov/'
-            + parseFloat(latitude) + parseFloat(longitude))
+        fetch('https://api.weather.gov/points/'
+            + parseFloat(latitude) + "," + parseFloat(longitude))
             .then((response) => response.json())
             .then((data) => this.retrieveWeather(data.properties.forecast))
             .catch((error) => console.error('Error: Invalid Search Input,', error));
